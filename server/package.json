@@ -27,6 +27,7 @@
     "@nestjs/mongoose": "^10.0.1",
     "@nestjs/platform-express": "^10.0.0",
     "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.0",

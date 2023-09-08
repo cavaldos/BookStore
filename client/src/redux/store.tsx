@@ -36,3 +36,16 @@ const store = configureStore({
 export let persistor = persistStore(store);
 
 export default store;
+
+
+
+
+// import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+// import thunk from "redux-thunk";
+// import accessTokenMiddleware from "./path-to-your-middleware/accessTokenMiddleware";
+// import rootReducer from "./your-reducer";
+
+// const store = configureStore({
+//   reducer: rootReducer,
+//   middleware: [thunk, accessTokenMiddleware, ...getDefaultMiddleware()],
+// });
