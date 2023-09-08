@@ -1,11 +1,12 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import { useSelector } from 'react-redux'
+import { increment, decrement } from './redux/features/countSlice'
+import { useDispatch } from 'react-redux'
 function App() {
-  const [count, setCount] = useState(0)
-
+  const count = useSelector((state: any) => state.count.value);
+  const dispatch = useDispatch();
   return (
     <>
       <div>
@@ -17,9 +18,23 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
+
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button>count :{count}</button>
+        <br />
+        <button
+          onClick={() => {
+            dispatch(increment());
+          }}
+        >
+          increment{" "}
+        </button>
+        <button
+          onClick={() => {
+            dispatch(decrement());
+          }}
+        >
+          decrement{" "}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
@@ -29,7 +44,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
 export default App

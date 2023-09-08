@@ -73,5 +73,4 @@ export interface Book extends Document {
   quantity: number;
   ISBN: string;
   Image: string;
-    
 }
