@@ -14,13 +14,22 @@ export class BookService {
     console.log('createBook');
     return 'Hello World!';
   }
-  deleteBook(): string {
-    console.log('deleteBook');
-    return 'Hello World!';
+  async deleteBook(_id) {
+    try {
+  
+      // const result = await this.bookModel.deleteOne({ _id: bookId }).exec();
+    } catch (err) {
+      throw new NotFoundException('Could not find book.');
+    }
   }
-  getBookById(): string {
-    console.log('gerBookById');
-    return 'Hello World!';
+  async getBookById(_id) {
+    try {
+
+      const book = await this.bookModel.findById(_id).exec();
+      return book;
+    }catch (err) {
+      throw new NotFoundException('Could not find book.');
+    }
   }
   updateBook(): string {
     console.log('updateBook');
