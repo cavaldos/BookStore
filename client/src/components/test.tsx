@@ -1,9 +1,13 @@
 import React from "react";
-const Component: React.FC = () => {
+import { useDispatch} from "react-redux";
 
+import {increment} from "store";
+const Component: React.FC = () => {
+  const dispatch = useDispatch();
+  dispatch(increment());
   return (
     <>
-      <h1 className=''>sddsafsd</h1>
+      <h1 className=''>sddsafasdads</h1>
 
     </>
   );
