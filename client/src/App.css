@@ -12,16 +12,15 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
-  color: #212529;
   text-align: left;
-  background-color: #fff;
+
 }
 
-.dark {
+/* .dark {
   color: #fff;
   background-color: #212529;
 }
 .light {
   color: #212529;
   background-color: #fff;
-}
+} */
