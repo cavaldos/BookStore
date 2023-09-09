@@ -13,7 +13,10 @@ function App() {
   const renderRoutes = () => {
     return PublicRoute;
   };
-
+  const onTouchStart = (e: any) => {
+    e.preventDefault();
+  };
+  document.addEventListener("touchstart", onTouchStart, { passive: true });
   return (
     <>
       <Router>
