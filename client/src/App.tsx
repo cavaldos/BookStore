@@ -1,50 +1,25 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { useSelector } from "react-redux";
-import { increment, decrement } from "./redux/features/countSlice";
-import { useDispatch } from "react-redux";
-import Components from "./components/test";
+import "@reduxjs/toolkit"
 function App() {
-  const count = useSelector((state: any) => state.count.value);
-  const dispatch = useDispatch();
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <Components />
-      <div className="card">
-        <button>count :{count}</button>
-        <br />
-        <button
-          onClick={() => {
-            dispatch(increment());
-          }}
-        >
-          increment{" "}
-        </button>
-        <button
-          onClick={() => {
-            dispatch(decrement());
-          }}
-        >
-          decrement{" "}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 className="text- first-letter:backdrop:first: bg-blend-color-dodge">
+        sdfsdsfadfsda
+        <div className="dark:bg-dark light:bg-light">
+          <h1 className="dark:text-white light:text-black">Hello, World!</h1>
+          <p className="dark:text-gray-300 light:text-gray-700">
+            Lorem ipsum dolor sit amet...
+          </p>
+        </div>
+      </h1>
+      <h2 className="">khanh</h2>
+      <h3>
+
+        
+      </h3>
     </>
+
+
   );
 }
 
