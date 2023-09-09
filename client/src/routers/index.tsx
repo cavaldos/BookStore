@@ -1,37 +1,42 @@
+import React from "react";
+import PrivateLayout from "~/components/layout/private.layout";
+import PublicLayout from "~/components/layout/public.layout";
+
+import Home from "~/pages/public/home";
+import DashBoard from "~/pages/private/dashboard";
+import Signin from "~/components/auth/signin";
+import Signup from "~/components/auth/signup";
 interface Route {
   path: string;
   component: React.ComponentType<any> | React.FC<any>;
-  DefaultLayout?: React.ComponentType<any> | React.FC<any>;
-  layout: null;
+  Layout?: React.ComponentType<any> | React.FC<any> | null;
 }
 
-const PublicRoute = [
+const PublicRoute: Array<Route> = [
   {
-    path: "/",
-    component: "Home",
-    DefaultLayout: "DefaultLayout",
-    layout: null,
+    path: "/signin",
+    component: Signin,
+    Layout: null,
   },
   {
-    path: "/login",
-    component: "login",
-    DefaultLayout: "login",
-    layout: null,
+    path: "/signup",
+    component: Signup,
+    Layout: null,
+  },
+  {
+    path: "/",
+    component: Home,
+    Layout: PublicLayout,
+  },
+
+];
+
+const PrivateRoute: Array<Route> = [
+  {
+    path: "/dashboard",
+    component: DashBoard,
+    Layout: PrivateLayout,
   },
 ];
 
-const PrivateRoute = [
-  {
-    path: "/dashboard",
-    component: "dashboard",
-    DefaultLayout: "DefaultLayout",
-    layout: null,
-  },
-  {
-    path: "/profile",
-    component: "profile",
-    DefaultLayout: "DefaultLayout",
-    layout: null,
-  },
-];
 export { PublicRoute, PrivateRoute };
