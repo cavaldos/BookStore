@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
 
+const NotFoundComponent = React.lazy(() => import("./notfound"));
 const NotFoundPage: React.FC = () => (
   <Suspense fallback={<div>Loading...</div>}>
-    <div>Not Found</div>
+    <NotFoundComponent />
   </Suspense>
 );
 

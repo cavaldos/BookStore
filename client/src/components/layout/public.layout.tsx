@@ -1,9 +1,9 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, Suspense } from "react";
 
 type PublicLayoutProps = {
   children: ReactNode;
 };
-
+const Footer = React.lazy(() => import("~/components/footer"));
 const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -26,6 +26,9 @@ const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
         {isDarkMode ? "Disable Dark Mode" : "Enable Dark Mode"}
       </button>
       <div>{children}</div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Footer />
+      </Suspense>
     </>
   );
 };
