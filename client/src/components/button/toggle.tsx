@@ -13,9 +13,10 @@ const ToggleTheme: React.FC = () => {
       document.documentElement.classList.add("dark");
     }
   };
+
   return (
     <>
-      <div className="m-[20px] w-6 dark:text-lightmode dark:bg-darkmode" >
+      <div className=" w-6 dark:text-lightmode dark:bg-darkmode  m-0">
         {<FaSun className="text-2xl" onClick={toggleDarkMode} />}
       </div>
     </>

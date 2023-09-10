@@ -10,8 +10,10 @@ export default {
         nunito: ["Nunito", "sans-serif", "ui-sans-serif", "system-ui"],
       },
       colors: {
-        darkmode: "#1E1E1E",
-        lightmode: "#F5F5F5",
+        header: "rgb(251,250,250)",
+        dark: "#1E1E1E",
+        light: "rgb(253,253,254)",
+        grey: "rgb(246, 244, 242)",
       },
       screens: {
         sm: "640px",

@@ -1,39 +1,31 @@
 import React, { ReactNode, Suspense, useMemo } from "react";
-
+import Header from "~/components/header/header";
+import LoadingFallback from "~/components/err/loader";
 type PublicLayoutProps = {
   children: ReactNode;
 };
 
-const LoadingFallback = () => {
-  return <div>Loading...</div>;
-};
-
 const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
-  const HeaderLazy = useMemo(
-    () => React.lazy(() => import("~/components/header/header")),
-    []
-  );
+  const MemoizedHeader = useMemo(() => {
+    return <Header />;
+  }, []);
+
   const FooterLazy = useMemo(
     () => React.lazy(() => import("~/components/footer")),
     []
   );
-
   return (
     <>
-      <Suspense fallback={<LoadingFallback />}>
-        <HeaderLazy />
-      </Suspense>
-
-      <div
-        style={{ backgroundColor: "grey" }}
-        className="relative min-h-[calc(100vh_-_100px)] h-screen p-1"
-      >
-        <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
+      {MemoizedHeader}
+      <div className="relative  min-h-screen bg-slate-500">
+        {" "}
+        {/*remove */}
+        <Suspense fallback={<LoadingFallback />}>
+          <div className="bg-pink-100 flex justify-center m-0">{children}</div>
+          {/*remove */}
+          <FooterLazy />
+        </Suspense>
       </div>
-
-      <Suspense fallback={<LoadingFallback />}>
-        <FooterLazy />
-      </Suspense>
     </>
   );
 };

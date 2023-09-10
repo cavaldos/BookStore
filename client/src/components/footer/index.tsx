@@ -1,7 +1,7 @@
 const Footer: React.FC = () => {
   return (
     <>
-      <footer className="bg-blue-100/80 font-sans dark:bg-gray-900">
+      <footer className="bg-blue-100/80 font-sans dark:bg-gray-900 relative ">
         <div className="container px-6 py-12 mx-auto">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
             <div className="sm:col-span-2">
@@ -125,7 +125,7 @@ const Footer: React.FC = () => {
               />
             </div>
           </div>
-          <p className="font-sans p-8 text-start md:text-center md:text-lg md:p-4">
+          <p className="font-sans p-8 text-start md:text-center md:text-lg md:p-4 dark:text-[#fff]">
             © 2023 You Company Inc. All rights reserved.
           </p>
         </div>

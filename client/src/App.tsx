@@ -8,6 +8,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import NotFoundPage from "~/components/err/index";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const renderRoutes = () => {

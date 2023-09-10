@@ -6,6 +6,7 @@ import Home from "~/pages/public/home";
 import DashBoard from "~/pages/private/dashboard";
 import Signin from "~/components/auth/signin";
 import Signup from "~/components/auth/signup";
+import Cart from "~/pages/public/cart";
 interface Route {
   path: string;
   component: React.ComponentType<any> | React.FC<any>;
@@ -28,7 +29,11 @@ const PublicRoute: Array<Route> = [
     component: Home,
     Layout: PublicLayout,
   },
-
+  {
+    path: "/cart",
+    component: Cart,
+    Layout: PublicLayout,
+  },
 ];
 
 const PrivateRoute: Array<Route> = [
