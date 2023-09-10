@@ -55,35 +55,35 @@
 // export default Message; 
 
 
-import React, { useState } from "react";
+// import { useState } from "react";
 
-const Alert = ({ message, type }: { message: string; type: string }) => {
-  const [visible, setVisible] = useState(true);
+// const Alert = ({ message, type }: { message: string; type: string }) => {
+//   const [visible, setVisible] = useState(true);
 
-  const onClose = () => {
-    setVisible(false);
-  };
+//   const onClose = () => {
+//     setVisible(false);
+//   };
 
-  return (
-    <>
-      {visible && (
-        <div
-          className={`${
-            type === "success"
-              ? "bg-green-500"
-              : type === "error"
-              ? "bg-red-500"
-              : "bg-blue-500"
-          } text-white py-2 px-4 rounded-md w-full text-center`}
-        >
-          {message}
-          <button className="ml-2" onClick={onClose}>
-            &times;
-          </button>
-        </div>
-      )}
-    </>
-  );
-};
+//   return (
+//     <>
+//       {visible && (
+//         <div
+//           className={`${
+//             type === "success"
+//               ? "bg-green-500"
+//               : type === "error"
+//               ? "bg-red-500"
+//               : "bg-blue-500"
+//           } text-white py-2 px-4 rounded-md w-full text-center`}
+//         >
+//           {message}
+//           <button className="ml-2" onClick={onClose}>
+//             &times;
+//           </button>
+//         </div>
+//       )}
+//     </>
+//   );
+// };
 
-export default Alert;
+// export default Alert;
