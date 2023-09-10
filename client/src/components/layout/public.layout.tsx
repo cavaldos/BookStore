@@ -1,6 +1,7 @@
 import React, { ReactNode, Suspense, useMemo } from "react";
 import Header from "~/components/header/header";
 import LoadingFallback from "~/components/err/loader";
+import Footer from "../footer";
 type PublicLayoutProps = {
   children: ReactNode;
 };
@@ -10,10 +11,10 @@ const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
     return <Header />;
   }, []);
 
-  const FooterLazy = useMemo(
-    () => React.lazy(() => import("~/components/footer")),
-    []
-  );
+  // const FooterLazy = useMemo(
+  //   () => React.lazy(() => import("~/components/footer")),
+  //   []
+  // );
   return (
     <>
       {MemoizedHeader}
@@ -23,7 +24,8 @@ const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
         <Suspense fallback={<LoadingFallback />}>
           <div className="bg-pink-100 flex justify-center m-0">{children}</div>
           {/*remove */}
-          <FooterLazy />
+          {/* <FooterLazy /> */}
+          <Footer />
         </Suspense>
       </div>
     </>
