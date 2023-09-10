@@ -1,33 +1,38 @@
-import React, { ReactNode, useState, Suspense } from "react";
+import React, { ReactNode, Suspense, useMemo } from "react";
 
 type PublicLayoutProps = {
   children: ReactNode;
 };
-const Footer = React.lazy(() => import("~/components/footer"));
-const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-  };
+const LoadingFallback = () => {
+  return <div>Loading...</div>;
+};
+
+const PublicLayout: React.FC<PublicLayoutProps> = ({ children }) => {
+  const HeaderLazy = useMemo(
+    () => React.lazy(() => import("~/components/header/header")),
+    []
+  );
+  const FooterLazy = useMemo(
+    () => React.lazy(() => import("~/components/footer")),
+    []
+  );
 
   return (
     <>
-      <h1 className="">Public Layout</h1>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={toggleDarkMode}
+      <Suspense fallback={<LoadingFallback />}>
+        <HeaderLazy />
+      </Suspense>
+
+      <div
+        style={{ backgroundColor: "grey" }}
+        className="relative min-h-[calc(100vh_-_100px)] h-screen p-1"
       >
-        {isDarkMode ? "Disable Dark Mode" : "Enable Dark Mode"}
-      </button>
-      <div>{children}</div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Footer />
+        <Suspense fallback={<LoadingFallback />}>{children}</Suspense>
+      </div>
+
+      <Suspense fallback={<LoadingFallback />}>
+        <FooterLazy />
       </Suspense>
     </>
   );

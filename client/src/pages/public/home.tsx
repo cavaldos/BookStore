@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   return (
     <>
       <div className={`bg-[#fff] dark:bg-[black]`}>
-        <h1 className={`text-xl dark:text-[#fff]`}>My App</h1>
+        <h1 className={`text-xl dark:text-[#fff]`}>My fdsApp</h1>
         <p className={`text-[black] dark:text-[#fff]`}>Welcome to my app!</p>
       </div>
       <button
