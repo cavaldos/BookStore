@@ -1,8 +1,17 @@
-import React from "react";
-import CarouselDefault from "~/components/container/carousel";
+import Loading from "~/components/err/loader";
 
+import React, { Suspense, useMemo } from "react";
 const Slider: React.FC = () => {
-  return <CarouselDefault />;
+  const CarouselLazy = useMemo(
+    () => React.lazy(() => import("~/components/container/carousel")),
+    []
+  );
+  return (
+    <>
+      <Suspense fallback={<Loading />}>
+        <CarouselLazy />
+      </Suspense>
+    </>
+  );
 };
-
 export default Slider;

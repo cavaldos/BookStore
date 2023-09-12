@@ -12,7 +12,7 @@ const Header = () => {
   };
   return (
     <>
-      <header className="w-full  text-gray-700 bg-white  border-gray-100 shadow-sm body-font border-b-[2px] dark:text-light dark:bg-dark">
+      <header className="w-full fixed z-10 text-gray-700 bg-white  border-gray-100 shadow-sm body-font border-b-[2px] dark:border-dark dark:text-light dark:bg-dark top-0">
         <div className="container flex flex-col items-start justify-between p-6 mx-auto md:flex-row">
           <button className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
             <h1 className=" font-nunito text-2xl font-bold dark:text-light">

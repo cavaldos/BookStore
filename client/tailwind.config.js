@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  // content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+
+  ],
   darkMode: "class",
   mode: "jit",
   purge: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -11,7 +15,7 @@ export default {
       },
       colors: {
         header: "rgb(251,250,250)",
-        dark: "#1E1E1E",
+        dark: "#1E1E1E", ///rgb(17,24,40)
         light: "rgb(253,253,254)",
         grey: "rgb(246, 244, 242)",
       },
