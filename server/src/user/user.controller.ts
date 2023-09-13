@@ -16,7 +16,7 @@ import { user_body } from 'src/interface/user';
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
-  @Get('getallusers')
+  @Get('getall')
   getAllUsers() {
     return this.userService.getAllUsers();
   }
@@ -24,7 +24,7 @@ export class UserController {
   getUserById(@Param('id') _id: string) {
     return this.userService.getUserById(_id);
   }
-  @Post('createuser')
+  @Post('create')
   @HttpCode(HttpStatus.CREATED)
   createUser(@Body() user: user_body) {
     return this.userService.createUser(user);

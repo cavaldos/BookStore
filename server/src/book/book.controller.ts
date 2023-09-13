@@ -4,11 +4,11 @@ import { BookService } from './book.service';
 @Controller('book')
 export class BookController {
   constructor(private readonly bookService: BookService) {}
-  @Get('getallbooks')
+  @Get('getall')
   getAllBooks() {
     return this.bookService.getAllBooks();
   }
-  @Post('createbook')
+  @Post('create')
   
   createBook(@Body() book:any) {
    
