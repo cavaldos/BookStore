@@ -2,7 +2,7 @@ const express = require("express");
 
 const app = express();
 const dotenv = require("dotenv");
-const MongoDB = require("./config/connectdb");
+// const MongoDB = require("./config/connectdb");
 const cors = require("cors");
 const morgan = require("morgan");
 
@@ -13,7 +13,7 @@ app.use(express.json());
 dotenv.config();
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-MongoDB.connect();
+// MongoDB.connect();
 app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
