@@ -17,7 +17,7 @@ MongoDB.connect();
 app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.json({ message: "Welcome to BookStore application." });
 });
 const port = process.env.PORT || 5000;
 //ROUTES
