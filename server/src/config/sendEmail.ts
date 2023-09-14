@@ -1,8 +1,6 @@
-
-
 const nodemailer = require('nodemailer');
 
-const sendEmail = async (email:string, code:string ) => {
+const sendEmail = async (email: string, code: string) => {
   try {
     // Tạo đối tượng transporter
     const transporter = nodemailer.createTransport({
@@ -19,7 +17,6 @@ const sendEmail = async (email:string, code:string ) => {
       to: email, // Email người nhận
       subject: 'Verify Code', // Tiêu đề email
       text: `Verify code${code}`, // Nội dung email (dạng plain text)
-
     };
 
     // Gửi email

@@ -6,8 +6,7 @@ import { BaseRepository } from 'src/base.reponsitory';
 
 @Injectable()
 export class BookRepository extends BaseRepository<Book> {
-    constructor(@InjectModel('Book') private bookModel: Model<Book>) {
-        super(bookModel);
-    }
+  constructor(@InjectModel('Book') private bookModel: Model<Book>) {
+    super(bookModel);
+  }
 }
-    

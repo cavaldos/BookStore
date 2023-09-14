@@ -16,7 +16,7 @@ export class BookService {
   }
   async deleteBook(_id) {
     try {
-      console.log("delete  user")
+      console.log('delete  user');
       // const result = await this.bookModel.deleteOne({ _id: bookId }).exec();
     } catch (err) {
       throw new NotFoundException('Could not find book.');
@@ -24,10 +24,9 @@ export class BookService {
   }
   async getBookById(_id) {
     try {
-
       const book = await this.bookModel.findById(_id).exec();
       return book;
-    }catch (err) {
+    } catch (err) {
       throw new NotFoundException('Could not find book.');
     }
   }

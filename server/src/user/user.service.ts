@@ -44,7 +44,6 @@ export class UserService {
   }
   async deleteUser(_id) {
     try {
-    
       const result = await this.userModel.deleteOne({ _id: _id }).exec();
       return result;
     } catch (err) {

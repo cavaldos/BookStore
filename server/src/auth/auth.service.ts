@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User } from 'src/user/models/user.schema';
-import { sendEmail } from 'src/config/sendEmail';
+// import { sendEmail } from 'src/config/sendEmail';
 @Injectable()
 export class AuthService {
   private user: User[] = [];
@@ -21,15 +21,14 @@ export class AuthService {
       throw new NotFoundException('Could not find user.');
     }
   }
-  async signUp(user, res) {
+  async signUp(user) {
     try {
-        console.log(user);
-        res.status(200).json({ message: 'login success' });
+      console.log(user);
     } catch (err) {
       throw new NotFoundException('Could not find user.');
     }
   }
-  async resetPassword(user, res) {
+  async resetPassword(user) {
     try {
       const result = await this.userModel.findOne({ email: user.email }).exec();
       return result;
