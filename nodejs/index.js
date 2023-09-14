@@ -14,7 +14,7 @@ app.use(morgan("tiny"));
 
 app.get("/", (req, res) => {
   console.log("Hello World");
-  res.json({ message: "Welcome to thase server!adsfdsf" });
+  res.send("Hello World");
 });
 
 app.get("/hi", (req, res) => {
