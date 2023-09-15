@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
-// const dotenv = require("dotenv");
-// dotenv.config();
+const dotenv = require("dotenv");
+dotenv.config();
 
-const URL = "mongodb+srv://Khanh:21126072@khanh.spi9com.mongodb.net/BookStore?retryWrites=true&w=majority";
+const URL =
+  process.env.MONGODB ||
+  "mongodb+srv://Khanh:21126072@khanh.spi9com.mongodb.net/BookStore?retryWrites=true&w=majority";
 async function connect() {
   try {
     await mongoose.connect(URL, {
