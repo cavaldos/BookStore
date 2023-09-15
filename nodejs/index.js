@@ -5,6 +5,9 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const bookRouter = require("./routes/book.route");
+const { connect } = require("./config/connectdb");
+
+connect();
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(cors());
