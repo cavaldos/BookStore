@@ -1,7 +1,10 @@
+const User = require("../models/user");
+
 const userController = {
   getall: async (req, res) => {
     try {
-      res.json({ message: "getall" });
+      const users = await User.find();
+      res.status(200).json(users);
     } catch (error) {
       console.log(error);
     }
@@ -35,4 +38,4 @@ const userController = {
     }
   },
 };
-export default userController;
+module.exports = userController;
