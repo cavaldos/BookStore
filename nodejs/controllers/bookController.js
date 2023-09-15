@@ -1,9 +1,14 @@
+const Book = require("../models/book");
+
 const bookController = {
   getall: async (req, res) => {
     try {
-      res.json({ message: "getall" });
+      const users = await Book.find();
+      res.status(200).json(users);
     } catch (error) {
-      console.log(error);
+      res.status(500).json({
+        message: err.message,
+      });
     }
   },
   find: async (req, res) => {
