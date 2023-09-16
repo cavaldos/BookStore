@@ -1,4 +1,4 @@
-# <center>CELLPHONES</center>
+# <center>Book Stroe</center>
 
 ## Description
 
@@ -6,6 +6,10 @@
 
 ```bash
 $ git clone https://github.com/cavaldos/CellphoneS-clone.git
+```
+
+```bash
+$  cd CellphoneS-clone
 ```
 
 ## Running the app
@@ -27,7 +31,10 @@ $ npm run dev
 
 ```bash
 # cd path
-$ cd client
+$ cd server
+
+# install package
+$ npm install
 
 # development
 $ npm run start
@@ -40,12 +47,14 @@ $ npm run start:prod
 ```
 
 # Client
+
 - <a href="https://cellphone-4mvpos8n0-cavaldos.vercel.app/">Link demo client</a>
+
 ---
 
 # Server
-- <a href="">Link demo server</a>
 
+- <a href="">Link demo server</a>
 
 ### API
 

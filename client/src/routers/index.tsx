@@ -1,7 +1,6 @@
 import React from "react";
 import PrivateLayout from "~/components/layout/private.layout";
 import PublicLayout from "~/components/layout/public.layout";
-
 import Home from "~/pages/public/home";
 import DashBoard from "~/pages/private/dashboard";
 import Signin from "~/components/auth/signin";

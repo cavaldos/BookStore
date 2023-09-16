@@ -1,9 +1,7 @@
 import React from "react";
 import Slider from "~/components/container/slider";
-
+import Swiper from "~/components/container/swiper";
 const Home: React.FC = () => {
-
-
   return (
     <>
       <div className="bg-light dark:bg-[black] min-h-screen relative min-w-full justify-center text-center pb-2">
@@ -11,7 +9,7 @@ const Home: React.FC = () => {
           <Slider />
         </div>
         <div className="w-[80vw]   text-amber-50 align-middle m-auto relative top-2 min-h-[80vh] mb-6 flex flex-row flex-wrap gap-1">
-          HOMW
+          <Swiper />
         </div>
       </div>
     </>
