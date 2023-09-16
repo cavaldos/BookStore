@@ -1,15 +1,8 @@
 import React from "react";
 import Slider from "~/components/container/slider";
-// import Swiper from "~/components/container/swiper";
-// import Book from "~/components/container/book";
-// import { getProducts } from "~/services/product.service";
-// import { useState } from "react";
 
 const Home: React.FC = () => {
-  // const [book, setBook] = useState<any>([]);
-  // React.useEffect(() => {
-  //   getProducts().then((res: any) => setBook(res));
-  // }, []);
+
 
   return (
     <>
@@ -18,7 +11,7 @@ const Home: React.FC = () => {
           <Slider />
         </div>
         <div className="w-[80vw]   text-amber-50 align-middle m-auto relative top-2 min-h-[80vh] mb-6 flex flex-row flex-wrap gap-1">
-          
+          HOMW
         </div>
       </div>
     </>

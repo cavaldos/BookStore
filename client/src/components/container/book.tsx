@@ -1,14 +1,4 @@
-interface BookProps {
-  id: string;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-  rating: number;
-}
-
-const Book: React.FC<BookProps> = (props) => {
-  console.log(props);
+const Book: React.FC = () => {
   return (
     <>
       <div className="relative flex-grow bg-gray-300 text-dark">
