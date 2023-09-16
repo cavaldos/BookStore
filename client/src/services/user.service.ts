@@ -1,7 +1,7 @@
 import axios from "./axios.config";
 
 const getUser = async () => {
-  const data = await axios.get("/user/getallusers");
+  const data = await axios.get("/user/getall");
   return data;
 };
 const deleteProduct = async (id: string) => {

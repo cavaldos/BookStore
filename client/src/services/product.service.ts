@@ -1,7 +1,7 @@
 import axios from "./axios.config";
 
 const getProducts = async () => {
-  const data = await axios.get("/products");
+  const data = await axios.get("/book/getall");
   return data;
 };
 const deleteProduct = async (id: string) => {
