@@ -3,15 +3,68 @@ import Slider from "~/components/container/slider";
 import Book from "~/components/container/book";
 import { getProducts } from "~/services/product.service";
 import { Pagination } from "antd";
+import { useState, useEffect } from "react";
+import { Suspense } from "react";
+import { useMemo } from "react";
+
+
 
 const Home: React.FC = () => {
-  const [products, setProducts] = React.useState([]);
-  React.useEffect(() => {
-    getProducts().then((res: any) => {
-      setProducts(res);
-    });
-  }, []);
-  console.log("check",products);
+  const [pageSize, setPageSize] = useState(12);
+  const [totalPages, setTotalPages] = useState(1);
+  const [pageNumbers, setPageNumbers] = useState<number[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [products, setProducts] = useState<any[]>([]);
+
+
+  useEffect(() => {
+    const fetchProducts = getProducts(currentPage, pageSize)
+      .then((res: any) => {
+        setProducts(res.books);
+        setTotalPages(res.totalPages);
+
+        console.log("rest", res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    return () => {
+      fetchProducts;
+    };
+  }, [currentPage, pageSize]);
+
+
+  useEffect(() => {
+    const generatePageNumbers = () => {
+      const numbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+      setPageNumbers(numbers);
+    };
+
+    generatePageNumbers();
+  }, [totalPages]);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const MemoizedBook = useMemo(
+    () => (
+      <Suspense fallback={<div>Loading...</div>}>
+        {products.map((product: any, index: number) => (
+          <Book
+            key={index}
+            title={product.Tittle}
+            rating={product.Rating}
+            price={product.Price}
+            image={product.Image}
+            _id={product._id}
+            author={product.Author}
+          />
+        ))}
+      </Suspense>
+    ),
+    [products]
+  );
+
   return (
     <>
       <div className="bg-light dark:bg-[black] min-h-screen relative min-w-full justify-center text-center pb-2 ">
@@ -19,24 +72,13 @@ const Home: React.FC = () => {
           <Slider />
         </div>
         <div className="w-[80vw] text-amber-50 align-middle m-auto relative top-2 min-h-[80vh] mb-6 flex flex-row flex-wrap gap-1 container mx-auto">
-          {products.map((product: any, index:number) => {
-            return (
-              <Book
-                key={index}
-                title={product.Tittle}
-                rating={product.Rating}
-                price={product.Price}
-                image={product.Image}
-                _id={product._id}
-                author={product.Author}
-              />
-            );
-          })}
+          {MemoizedBook}
         </div>
         <Pagination
-          defaultCurrent={6}
-          total={164}
-    
+          current={currentPage}
+          total={totalPages * pageSize}
+          pageSize={pageSize}
+          onChange={handlePageChange}
         />
       </div>
     </>
