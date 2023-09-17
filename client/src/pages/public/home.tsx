@@ -8,7 +8,7 @@ import { Suspense } from "react";
 import { useMemo } from "react";
 
 const Home: React.FC = () => {
-  const [pageSize, setPageSize] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [totalPages, setTotalPages] = useState(1);
   const [pageNumbers, setPageNumbers] = useState<number[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
