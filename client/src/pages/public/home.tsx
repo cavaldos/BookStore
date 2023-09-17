@@ -8,9 +8,9 @@ import { Suspense } from "react";
 import { useMemo } from "react";
 
 const Home: React.FC = () => {
-  const [pageSize, setPageSize] = useState(12);
+  const [pageSize, setPageSize] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  // const [pageNumbers, setPageNumbers] = useState<number[]>([]);
+  const [pageNumbers, setPageNumbers] = useState<number[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [products, setProducts] = useState<any[]>([]);
 
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       .then((res: any) => {
         setProducts(res.books);
         setTotalPages(res.totalPages);
-        setPageSize(res.pageSize);
+        setPageSize(res.books.length);
         console.log("rest", res);
       })
       .catch((err) => {
@@ -30,6 +30,14 @@ const Home: React.FC = () => {
     };
   }, [currentPage, pageSize]);
 
+  useEffect(() => {
+    const generatePageNumbers = () => {
+      const numbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+      setPageNumbers(numbers);
+    };
+
+    generatePageNumbers();
+  }, [pageNumbers, totalPages]);
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
