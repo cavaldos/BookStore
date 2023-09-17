@@ -1,10 +1,6 @@
 const router = require("express").Router();
 const bookController = require("../controllers/bookController");
-
-const preventRouteCollision = require("../middleware/check");
-
-
-router.use(preventRouteCollision);
+const middlewareAuth = require("../middleware/auth");
 
 router.get("/list", bookController.getbook);
 router.get("/getall",  bookController.getall);
