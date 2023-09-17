@@ -1,31 +1,46 @@
-const Book: React.FC = () => {
+import { Rate } from "antd";
+
+interface Props {
+  title: string;
+  rating: number;
+  price: number;
+  image: string;
+  _id: string;
+  author: string;
+}
+
+const Book: React.FC<Props> = (props: Props) => {
+  // console.log("props", props);
   return (
     <>
-      <div className="relative flex-grow bg-gray-300 text-dark">
+      <div
+        style={{ border: "solid 1px black" }}
+        className="relative flex-grow bg-[#F6F7F6] text-dark  h-[450px] min-w-[300px] max-w-[300px] m-[2px] rounded	p-[5px]"
+      >
         <img
-          src="https://m.media-amazon.com/images/I/41H+ZQFGkVL._AC_UY327_FMwebp_QL65_.jpg"
-          className="w-full h-56 object-cover"
+          src={props.image || "https://picsum.photos/300/300"}
+          className="mx-auto rounded h-[300px] w-[300px]"
+          onClick={() => {
+            alert("clicked");
+          }}
         />
 
         <div className="p-4">
-          <h2 className="text-lg font-bold">Book title</h2>
-
-          <p className="text-gray-500">Description...</p>
-
-          <div className="flex items-center my-2">
-            <svg className="w-4 h-4 fill-current text-yellow-500" />
-            <svg className="w-4 h-4 fill-current text-yellow-500" />
-            <svg className="w-4 h-4 fill-current text-yellow-500" />
-            <svg className="w-4 h-4 fill-current text-yellow-500" />
-            <svg className="w-4 h-4 fill-current text-gray-300" />
-          </div>
+          <h2 className="text-lg font-bold whitespace-nowrap overflow-hidden text-ellipsis">
+            {props.title || "Title"}
+          </h2>
 
           <div className="flex justify-between items-center mt-3">
-            <span className="text-lg font-bold text-blue-500">$49</span>
+            <span className="text-lg font-bold ">${props.price || 0}</span>
             <button className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600">
               Add to Card
             </button>
           </div>
+          <Rate
+            className="mt-2 float-left"
+            allowHalf
+            defaultValue={props.rating}
+          />
         </div>
       </div>
     </>
