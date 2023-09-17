@@ -49,7 +49,8 @@ $ npm run start:prod
 # Client
 
 - <a href="https://cellphone-4mvpos8n0-cavaldos.vercel.app/">Link demo client</a>
-![Screenshot from 2022-12-11 19-30-20](https://github.com/cavaldos/BookStore/blob/main/screen/home.png)
+  ![Screenshot from 2022-12-11 19-30-20](https://github.com/cavaldos/BookStore/blob/main/screen/home.png)
+
 ---
 
 # Server
@@ -58,16 +59,24 @@ $ npm run start:prod
 
 ### API
 
-| Functionality         | Method | Endpoint              | Request Body                  | Response                      |
-| --------------------- | ------ | --------------------- | ----------------------------- | ----------------------------- |
-| signin                | POST   | /api/users            | {name, email, password}       | {user object}                 |
-| signup                | POST   | /api/login            | {email, password}             | {token}                       |
-| resetpassword         | GET    | /api/books            | -                             | {book objects array}          |
-| get all book          | GET    | /api/books?title=     | -                             | {matching book objects array} |
-| create book           | GET    | /api/books/:id        | -                             | {book object}                 |
-| delete book           | POST   | /api/lend             | {user_id, book_id, lend_date} | -                             |
-|                       | PUT    | /api/return/:id       | {return_date}                 | -                             |
-| Lấy lịch sử mượn sách | GET    | /api/history/:user_id | -                             | {lend/return objects array}   |
+| object | Functionality | Method | Endpoint                       | Request Body            | Response                      |
+| ------ | ------------- | ------ | ------------------------------ | ----------------------- | ----------------------------- |
+| auth   | signin        | POST   | /auth/users                    | {name, email, password} | {user object}                 |
+|        | signup        | POST   | /auth/login                    | {email, password}       | {token}                       |
+|        | resetpassword | GET    | /auth/reset                    | -                       | {book objects array}          |
+| -      | -             | -      | -                              | -                       | -                             |
+| book   | get all book  | GET    | /book/getall                   | -                       | {matching book objects array} |
+|        | create book   | POST   | /book/create                   | -                       | {book object}                 |
+|        | delete book   | DELETE | /book/delete                   | {\_id}                  | -                             |
+|        | update        | PUT    | /api/return/:id                | {return_date}           | -                             |
+|        | pagingation   | GET    | /book/list?page={}&pageSize={} | -                       | {lend/return objects array}   |
+|        | find          | GET    | /book/{\_id}                   | -                       | {lend/return objects array}   |
+| -      | -             | -      | -                              | -                       | -                             |
+| user   | getall        | GET    | /user/getall                   | -                       | {lend/return objects array}   |
+|        | delete        | DELETE | /user/:\_id                    | -                       | {lend/return objects array}   |
+|        | update        | PUT    | /user/update                   | -                       | {lend/return objects array}   |
+|        | create        | POST   | /user/create                   | -                       | {lend/return objects array}   |
+|        | find          | GET    | /user/:\_id                    | -                       | {lend/return objects array}   |
 
 ## Support
 
