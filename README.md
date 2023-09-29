@@ -5,11 +5,11 @@
 ## Installation
 
 ```bash
-$ git clone https://github.com/cavaldos/CellphoneS-clone.git
+$ git clone https://github.com/cavaldos/BookStore.git
 ```
 
 ```bash
-$  cd CellphoneS-clone
+$  cd BookStore
 ```
 
 ## Running the app
